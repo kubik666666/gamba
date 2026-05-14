@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: #1a0a2e;
+  color: #ffd700;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b00;
+  margin-bottom: 30px;
+}
+
+.deposit-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #00ff88;
+  background: transparent;
+  color: #00ff88;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.deposit-btn:hover {
+  background: #00ff88;
+  color: #1a0a2e;
+}
+
+/* modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #2d1450;
+  border: 2px solid #00ff88;
+  border-radius: 14px;
+  padding: 30px 36px;
+  text-align: center;
+  color: #ffd700;
+  min-width: 280px;
+}
+
+.modal h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.modal p {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  background: #0d0520;
+  color: #ffd700;
+  text-align: center;
+  outline: none;
+}
+
+.modal-error {
+  color: #ff4444;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  margin-top: 8px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  padding: 10px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #00ff88;
+  color: #1a0a2e;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.modal-buttons button:hover { opacity: 0.85; }
+
+.modal-buttons button.cancel {
+  background: #444;
+  color: #ccc;
+}
+
+/* slot machine selector */
+.machine-select {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.machine-select button {
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: 2px solid #ffd700;
+  background: transparent;
+  color: #ffd700;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.machine-select button:hover,
+.machine-select button.active {
+  background: #ffd700;
+  color: #1a0a2e;
+}
+
+/* coins display */
+.coins {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+/* slot container */
+.slot-machine {
+  background: #2d1450;
+  border: 3px solid #ffd700;
+  border-radius: 16px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.reels {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.reel {
+  width: 80px;
+  height: 90px;
+  background: #0d0520;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  overflow: hidden;
+}
+
+.reel.spinning {
+  animation: shake 0.1s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(2px); }
+}
+
+#spin-btn {
+  padding: 14px 48px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffd700, #ff6b00);
+  color: #1a0a2e;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#spin-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+#spin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#result {
+  margin-top: 18px;
+  font-size: 1.4rem;
+  min-height: 1.6em;
+}
+
+.win {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88;
+}
+
+.lose {
+  color: #ff4444;
+}
