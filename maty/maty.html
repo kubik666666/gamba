@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slot Machine</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Slots – Gamba</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <button class="deposit-btn" id="deposit-btn" onclick="openDeposit()">💵 Deposit</button>
+
+  <button class="deposit-btn" onclick="openDeposit()">💵 Deposit</button>
+  <a href="../index.html" class="back-btn">🏠 Menu</a>
 
   <!-- Deposit Modal -->
   <div id="deposit-modal" class="modal-overlay" style="display:none;">
@@ -31,18 +33,19 @@
     <button onclick="selectMachine(2)">Machine 3</button>
   </div>
 
-  <div class="coins">💰 <span id="coins">1000</span> coins</div>
+  <div class="coins">💰 <span id="coins">0</span> coins</div>
 
-  <div class="slot-machine">
+  <div class="game-card">
     <div class="reels">
       <div class="reel" id="r0">🍒</div>
       <div class="reel" id="r1">🍋</div>
       <div class="reel" id="r2">🍉</div>
     </div>
-    <button id="spin-btn" onclick="spin()">SPIN</button>
+    <button id="spin-btn" class="action-btn" onclick="spin()">SPIN (50 coins)</button>
     <div id="result"></div>
   </div>
 
+  <script src="../shared.js"></script>
   <script src="maty.js"></script>
 </body>
 </html>

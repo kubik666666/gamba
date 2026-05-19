@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: #1a0a2e;
+  color: #ffd700;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b00;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ---- TOP BUTTONS ---- */
+.deposit-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #00ff88;
+  background: transparent;
+  color: #00ff88;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.deposit-btn:hover {
+  background: #00ff88;
+  color: #1a0a2e;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #ffd700;
+  background: transparent;
+  color: #ffd700;
+  cursor: pointer;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-btn:hover {
+  background: #ffd700;
+  color: #1a0a2e;
+}
+
+/* ---- MODAL ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #2d1450;
+  border: 2px solid #00ff88;
+  border-radius: 14px;
+  padding: 30px 36px;
+  text-align: center;
+  color: #ffd700;
+  min-width: 280px;
+}
+
+.modal h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.modal p {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  background: #0d0520;
+  color: #ffd700;
+  text-align: center;
+  outline: none;
+}
+
+.modal-error {
+  color: #ff4444;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  margin-top: 8px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  padding: 10px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #00ff88;
+  color: #1a0a2e;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.modal-buttons button:hover { opacity: 0.85; }
+
+.modal-buttons button.cancel {
+  background: #444;
+  color: #ccc;
+}
+
+/* ---- COINS ---- */
+.coins {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+/* ---- WIN / LOSE ---- */
+.win {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88;
+}
+
+.lose { color: #ff4444; }
+
+/* ---- GAME CARD ---- */
+.game-card {
+  background: #2d1450;
+  border: 3px solid #ffd700;
+  border-radius: 16px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+/* ---- ACTION BUTTON ---- */
+.action-btn {
+  padding: 14px 48px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffd700, #ff6b00);
+  color: #1a0a2e;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.action-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---- BET INPUT ROW ---- */
+.bet-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bet-row input {
+  width: 110px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  background: #0d0520;
+  color: #ffd700;
+  text-align: center;
+  outline: none;
+}
+
+.bet-row label {
+  font-size: 1rem;
+  color: #ffd700;
+}
+
+/* ---- MAIN PAGE ---- */
+.games-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-link {
+  background: #2d1450;
+  border: 3px solid #ffd700;
+  border-radius: 16px;
+  padding: 40px 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffd700;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  min-width: 180px;
+}
+
+.game-link:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.5);
+}
+
+.game-link .icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.game-link .name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* ---- SLOTS ---- */
+.machine-select {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.machine-select button {
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: 2px solid #ffd700;
+  background: transparent;
+  color: #ffd700;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.machine-select button:hover,
+.machine-select button.active {
+  background: #ffd700;
+  color: #1a0a2e;
+}
+
+.reels {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.reel {
+  width: 80px;
+  height: 90px;
+  background: #0d0520;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  overflow: hidden;
+}
+
+.reel.spinning { animation: shake 0.1s infinite; }
+
+@keyframes shake {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(2px); }
+}
+
+#result {
+  margin-top: 18px;
+  font-size: 1.4rem;
+  min-height: 1.6em;
+}
+
+/* ---- ROULETTE ---- */
+.roulette-wheel {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid #ffd700;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  transition: transform 3s cubic-bezier(0.2, 0.8, 0.3, 1);
+  background: conic-gradient(
+    #c00 0deg 19.5deg,
+    #111 19.5deg 39deg,
+    #c00 39deg 58.5deg,
+    #111 58.5deg 78deg,
+    #c00 78deg 97.5deg,
+    #111 97.5deg 117deg,
+    #c00 117deg 136.5deg,
+    #111 136.5deg 156deg,
+    #c00 156deg 175.5deg,
+    #00aa00 175.5deg 185.1deg,
+    #c00 185.1deg 204.6deg,
+    #111 204.6deg 224.1deg,
+    #c00 224.1deg 243.6deg,
+    #111 243.6deg 263.1deg,
+    #c00 263.1deg 282.6deg,
+    #111 282.6deg 302.1deg,
+    #c00 302.1deg 321.6deg,
+    #111 321.6deg 341.1deg,
+    #c00 341.1deg 360deg
+  );
+}
+
+.roulette-wheel.spinning {
+  animation: spin-wheel 3s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes spin-wheel {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(1440deg); }
+}
+
+.bet-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.bet-option {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ffd700;
+  background: transparent;
+  color: #ffd700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bet-option.red    { border-color: #ff4444; color: #ff4444; }
+.bet-option.black  { border-color: #aaa;    color: #aaa; }
+.bet-option.green  { border-color: #00ff88; color: #00ff88; }
+
+.bet-option.active,
+.bet-option:hover             { background: #ffd700; color: #1a0a2e; border-color: #ffd700; }
+.bet-option.red.active,
+.bet-option.red:hover         { background: #ff4444; color: #fff;    border-color: #ff4444; }
+.bet-option.black.active,
+.bet-option.black:hover       { background: #aaa;    color: #1a0a2e; border-color: #aaa; }
+.bet-option.green.active,
+.bet-option.green:hover       { background: #00ff88; color: #1a0a2e; border-color: #00ff88; }
+
+#roulette-result {
+  margin-top: 16px;
+  font-size: 1.4rem;
+  min-height: 1.6em;
+}
+
+/* ---- COINFLIP ---- */
+.coin {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #ff9900);
+  border: 5px solid #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+  transition: transform 0.15s;
+  user-select: none;
+}
+
+.coin.flipping {
+  animation: coin-flip 0.15s infinite linear;
+}
+
+@keyframes coin-flip {
+  0%   { transform: scaleX(1); }
+  50%  { transform: scaleX(0.1); }
+  100% { transform: scaleX(1); }
+}
+
+.cf-options {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cf-option {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 2px solid #ffd700;
+  background: transparent;
+  color: #ffd700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cf-option:hover,
+.cf-option.active {
+  background: #ffd700;
+  color: #1a0a2e;
+}
+
+#cf-result {
+  margin-top: 16px;
+  font-size: 1.4rem;
+  min-height: 1.6em;
+}
