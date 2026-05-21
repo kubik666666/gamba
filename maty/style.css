@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Georgia', serif;
-  background: #1a0a2e;
-  color: #ffd700;
+  background: rgb(26, 10, 46);
+  color: gold;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b00;
+  text-shadow: 0 0 20px gold, 0 0 40px rgb(255, 107, 0);
   margin-bottom: 30px;
 }
 
@@ -28,20 +28,19 @@ h1 {
   left: 20px;
   padding: 10px 20px;
   font-size: 1rem;
-  border: 2px solid #00ff88;
+  border: 2px solid rgb(0, 255, 136);
   background: transparent;
-  color: #00ff88;
+  color: rgb(0, 255, 136);
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s, color 0.2s;
 }
 
 .deposit-btn:hover {
-  background: #00ff88;
-  color: #1a0a2e;
+  background: rgb(0, 255, 136);
+  color: rgb(26, 10, 46);
 }
 
-/* modal */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -53,12 +52,12 @@ h1 {
 }
 
 .modal {
-  background: #2d1450;
-  border: 2px solid #00ff88;
+  background: rgb(45, 20, 80);
+  border: 2px solid rgb(0, 255, 136);
   border-radius: 14px;
   padding: 30px 36px;
   text-align: center;
-  color: #ffd700;
+  color: gold;
   min-width: 280px;
 }
 
@@ -69,7 +68,7 @@ h1 {
 
 .modal p {
   font-size: 0.95rem;
-  color: #aaa;
+  color: gray;
   margin-bottom: 16px;
 }
 
@@ -77,16 +76,16 @@ h1 {
   width: 100%;
   padding: 10px;
   font-size: 1.1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   border-radius: 8px;
-  background: #0d0520;
-  color: #ffd700;
+  background: rgb(13, 5, 32);
+  color: gold;
   text-align: center;
   outline: none;
 }
 
 .modal-error {
-  color: #ff4444;
+  color: rgb(255, 68, 68);
   font-size: 0.9rem;
   min-height: 1.2em;
   margin-top: 8px;
@@ -104,8 +103,8 @@ h1 {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  background: #00ff88;
-  color: #1a0a2e;
+  background: rgb(0, 255, 136);
+  color: rgb(26, 10, 46);
   cursor: pointer;
   font-weight: bold;
   transition: opacity 0.2s;
@@ -114,11 +113,10 @@ h1 {
 .modal-buttons button:hover { opacity: 0.85; }
 
 .modal-buttons button.cancel {
-  background: #444;
-  color: #ccc;
+  background: rgb(68, 68, 68);
+  color: lightgray;
 }
 
-/* slot machine selector */
 .machine-select {
   display: flex;
   gap: 12px;
@@ -128,9 +126,9 @@ h1 {
 .machine-select button {
   padding: 10px 22px;
   font-size: 1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   background: transparent;
-  color: #ffd700;
+  color: gold;
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s, color 0.2s;
@@ -138,21 +136,19 @@ h1 {
 
 .machine-select button:hover,
 .machine-select button.active {
-  background: #ffd700;
-  color: #1a0a2e;
+  background: gold;
+  color: rgb(26, 10, 46);
 }
 
-/* coins display */
 .coins {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #ffd700;
+  text-shadow: 0 0 10px gold;
 }
 
-/* slot container */
 .slot-machine {
-  background: #2d1450;
-  border: 3px solid #ffd700;
+  background: rgb(45, 20, 80);
+  border: 3px solid gold;
   border-radius: 16px;
   padding: 30px 40px;
   text-align: center;
@@ -169,8 +165,8 @@ h1 {
 .reel {
   width: 80px;
   height: 90px;
-  background: #0d0520;
-  border: 2px solid #ffd700;
+  background: rgb(13, 5, 32);
+  border: 2px solid gold;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -194,8 +190,8 @@ h1 {
   font-weight: bold;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ffd700, #ff6b00);
-  color: #1a0a2e;
+  background: linear-gradient(135deg, gold, rgb(255, 107, 0));
+  color: rgb(26, 10, 46);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
 }
@@ -218,10 +214,10 @@ h1 {
 }
 
 .win {
-  color: #00ff88;
-  text-shadow: 0 0 10px #00ff88;
+  color: rgb(0, 255, 136);
+  text-shadow: 0 0 10px rgb(0, 255, 136);
 }
 
 .lose {
-  color: #ff4444;
+  color: rgb(255, 68, 68);
 }

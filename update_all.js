@@ -1,12 +1,11 @@
 const fs = require('fs');
 
 const cssAdditions = `
-/* ---- BLACKJACK ---- */
 .bj-area {
-  background: #0d0520;
+  background: rgb(13, 5, 32);
   border-radius: 8px;
   padding: 15px;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
 }
 
 .bj-area h3 {
@@ -24,7 +23,7 @@ const cssAdditions = `
 .bj-card {
   width: 80px;
   height: 110px;
-  background: #fff;
+  background: white;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -32,15 +31,15 @@ const cssAdditions = `
   font-size: 2rem;
   font-weight: bold;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  border: 1px solid #ccc;
+  border: 1px solid lightgray;
   position: relative;
 }
 
-.bj-card.red { color: #ff4444; }
-.bj-card.black { color: #111; }
+.bj-card.red { color: rgb(255, 68, 68); }
+.bj-card.black { color: rgb(17, 17, 17); }
 .bj-card.hidden { 
-  background: repeating-linear-gradient(45deg, #0d0520, #0d0520 10px, #1a0a2e 10px, #1a0a2e 20px); 
-  border-color: #ffd700; 
+  background: repeating-linear-gradient(45deg, rgb(13, 5, 32), rgb(13, 5, 32) 10px, rgb(26, 10, 46) 10px, rgb(26, 10, 46) 20px); 
+  border-color: gold; 
   color: transparent; 
 }
 `;
@@ -60,15 +59,12 @@ const files = [
 
 for (const file of files) {
   let content = fs.readFileSync(file, 'utf8');
-  
-  // Replace the modal and old button with the new deposit link
   content = content.replace(/<button class="deposit-btn" onclick="openDeposit\(\)">💵 Deposit<\/button>\s*<!-- Deposit Modal -->\s*<div id="deposit-modal" class="modal-overlay".*?<\/div>\s*<\/div>\s*<\/div>/s, 
     file === 'index.html' 
     ? '<a href="deposit/deposit.html" class="deposit-btn" style="text-decoration:none;">💵 Deposit</a>'
     : '<a href="../deposit/deposit.html" class="deposit-btn" style="text-decoration:none;">💵 Deposit</a>'
   );
 
-  // Add Blackjack to index.html grid if not present
   if (file === 'index.html' && !content.includes('Blackjack')) {
     content = content.replace(
       '  </div>\n\n  <script src="shared.js"></script>',

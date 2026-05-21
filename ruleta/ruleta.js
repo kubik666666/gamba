@@ -1,7 +1,6 @@
-// Red numbers in standard roulette
 const RED_NUMBERS = new Set([1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]);
 
-let selectedBet = null; // 'red' | 'black' | 'green'
+let selectedBet = null;
 
 function selectBet(type) {
   selectedBet = type;
@@ -45,16 +44,14 @@ function spinRoulette() {
   result.textContent = '';
   result.className = '';
 
-  // Spin animation via CSS class
   wheel.classList.remove('spinning');
-  // Force reflow to restart animation
   void wheel.offsetWidth;
   wheel.classList.add('spinning');
 
   setTimeout(() => {
     wheel.classList.remove('spinning');
 
-    const landed = Math.floor(Math.random() * 37); // 0–36
+    const landed = Math.floor(Math.random() * 37);
     const color  = getColor(landed);
 
     const colorEmoji = { red: '🔴', black: '⚫', green: '🟢' };

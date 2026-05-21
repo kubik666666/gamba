@@ -1,4 +1,3 @@
-// Shared coins — persisted in localStorage
 let coins = parseInt(localStorage.getItem('gambCoins') || '1000');
 
 function saveCoins() {

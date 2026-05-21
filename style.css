@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Georgia', serif;
-  background: #1a0a2e;
-  color: #ffd700;
+  background: rgb(26, 10, 46);
+  color: gold;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,21 +18,20 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b00;
+  text-shadow: 0 0 20px gold, 0 0 40px rgb(255, 107, 0);
   margin-bottom: 30px;
   text-align: center;
 }
 
-/* ---- TOP BUTTONS ---- */
 .deposit-btn {
   position: absolute;
   top: 20px;
   left: 20px;
   padding: 10px 20px;
   font-size: 1rem;
-  border: 2px solid #00ff88;
+  border: 2px solid rgb(0, 255, 136);
   background: transparent;
-  color: #00ff88;
+  color: rgb(0, 255, 136);
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s, color 0.2s;
@@ -40,8 +39,8 @@ h1 {
 }
 
 .deposit-btn:hover {
-  background: #00ff88;
-  color: #1a0a2e;
+  background: rgb(0, 255, 136);
+  color: rgb(26, 10, 46);
 }
 
 .back-btn {
@@ -50,9 +49,9 @@ h1 {
   right: 20px;
   padding: 10px 20px;
   font-size: 1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   background: transparent;
-  color: #ffd700;
+  color: gold;
   cursor: pointer;
   border-radius: 8px;
   text-decoration: none;
@@ -60,11 +59,10 @@ h1 {
 }
 
 .back-btn:hover {
-  background: #ffd700;
-  color: #1a0a2e;
+  background: gold;
+  color: rgb(26, 10, 46);
 }
 
-/* ---- MODAL ---- */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -76,12 +74,12 @@ h1 {
 }
 
 .modal {
-  background: #2d1450;
-  border: 2px solid #00ff88;
+  background: rgb(45, 20, 80);
+  border: 2px solid rgb(0, 255, 136);
   border-radius: 14px;
   padding: 30px 36px;
   text-align: center;
-  color: #ffd700;
+  color: gold;
   min-width: 280px;
 }
 
@@ -92,7 +90,7 @@ h1 {
 
 .modal p {
   font-size: 0.95rem;
-  color: #aaa;
+  color: gray;
   margin-bottom: 16px;
 }
 
@@ -100,16 +98,16 @@ h1 {
   width: 100%;
   padding: 10px;
   font-size: 1.1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   border-radius: 8px;
-  background: #0d0520;
-  color: #ffd700;
+  background: rgb(13, 5, 32);
+  color: gold;
   text-align: center;
   outline: none;
 }
 
 .modal-error {
-  color: #ff4444;
+  color: rgb(255, 68, 68);
   font-size: 0.9rem;
   min-height: 1.2em;
   margin-top: 8px;
@@ -127,8 +125,8 @@ h1 {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  background: #00ff88;
-  color: #1a0a2e;
+  background: rgb(0, 255, 136);
+  color: rgb(26, 10, 46);
   cursor: pointer;
   font-weight: bold;
   transition: opacity 0.2s;
@@ -137,44 +135,40 @@ h1 {
 .modal-buttons button:hover { opacity: 0.85; }
 
 .modal-buttons button.cancel {
-  background: #444;
-  color: #ccc;
+  background: rgb(68, 68, 68);
+  color: lightgray;
 }
 
-/* ---- COINS ---- */
 .coins {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #ffd700;
+  text-shadow: 0 0 10px gold;
 }
 
-/* ---- WIN / LOSE ---- */
 .win {
-  color: #00ff88;
-  text-shadow: 0 0 10px #00ff88;
+  color: rgb(0, 255, 136);
+  text-shadow: 0 0 10px rgb(0, 255, 136);
 }
 
-.lose { color: #ff4444; }
+.lose { color: rgb(255, 68, 68); }
 
-/* ---- GAME CARD ---- */
 .game-card {
-  background: #2d1450;
-  border: 3px solid #ffd700;
+  background: rgb(45, 20, 80);
+  border: 3px solid gold;
   border-radius: 16px;
   padding: 30px 40px;
   text-align: center;
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
-/* ---- ACTION BUTTON ---- */
 .action-btn {
   padding: 14px 48px;
   font-size: 1.2rem;
   font-weight: bold;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ffd700, #ff6b00);
-  color: #1a0a2e;
+  background: linear-gradient(135deg, gold, rgb(255, 107, 0));
+  color: rgb(26, 10, 46);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
 }
@@ -190,7 +184,6 @@ h1 {
   transform: none;
 }
 
-/* ---- BET INPUT ROW ---- */
 .bet-row {
   display: flex;
   gap: 10px;
@@ -203,20 +196,19 @@ h1 {
   width: 110px;
   padding: 8px;
   font-size: 1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   border-radius: 8px;
-  background: #0d0520;
-  color: #ffd700;
+  background: rgb(13, 5, 32);
+  color: gold;
   text-align: center;
   outline: none;
 }
 
 .bet-row label {
   font-size: 1rem;
-  color: #ffd700;
+  color: gold;
 }
 
-/* ---- MAIN PAGE ---- */
 .games-grid {
   display: flex;
   gap: 24px;
@@ -225,13 +217,13 @@ h1 {
 }
 
 .game-link {
-  background: #2d1450;
-  border: 3px solid #ffd700;
+  background: rgb(45, 20, 80);
+  border: 3px solid gold;
   border-radius: 16px;
   padding: 40px 50px;
   text-align: center;
   text-decoration: none;
-  color: #ffd700;
+  color: gold;
   transition: transform 0.15s, box-shadow 0.15s;
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
   min-width: 180px;
@@ -253,7 +245,6 @@ h1 {
   font-weight: bold;
 }
 
-/* ---- SLOTS ---- */
 .machine-select {
   display: flex;
   gap: 12px;
@@ -263,9 +254,9 @@ h1 {
 .machine-select button {
   padding: 10px 22px;
   font-size: 1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   background: transparent;
-  color: #ffd700;
+  color: gold;
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s, color 0.2s;
@@ -273,8 +264,8 @@ h1 {
 
 .machine-select button:hover,
 .machine-select button.active {
-  background: #ffd700;
-  color: #1a0a2e;
+  background: gold;
+  color: rgb(26, 10, 46);
 }
 
 .reels {
@@ -287,8 +278,8 @@ h1 {
 .reel {
   width: 80px;
   height: 90px;
-  background: #0d0520;
-  border: 2px solid #ffd700;
+  background: rgb(13, 5, 32);
+  border: 2px solid gold;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -310,12 +301,11 @@ h1 {
   min-height: 1.6em;
 }
 
-/* ---- ROULETTE ---- */
 .roulette-wheel {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 5px solid #ffd700;
+  border: 5px solid gold;
   margin: 0 auto 20px;
   display: flex;
   align-items: center;
@@ -324,25 +314,25 @@ h1 {
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
   transition: transform 3s cubic-bezier(0.2, 0.8, 0.3, 1);
   background: conic-gradient(
-    #c00 0deg 19.5deg,
-    #111 19.5deg 39deg,
-    #c00 39deg 58.5deg,
-    #111 58.5deg 78deg,
-    #c00 78deg 97.5deg,
-    #111 97.5deg 117deg,
-    #c00 117deg 136.5deg,
-    #111 136.5deg 156deg,
-    #c00 156deg 175.5deg,
-    #00aa00 175.5deg 185.1deg,
-    #c00 185.1deg 204.6deg,
-    #111 204.6deg 224.1deg,
-    #c00 224.1deg 243.6deg,
-    #111 243.6deg 263.1deg,
-    #c00 263.1deg 282.6deg,
-    #111 282.6deg 302.1deg,
-    #c00 302.1deg 321.6deg,
-    #111 321.6deg 341.1deg,
-    #c00 341.1deg 360deg
+    red 0deg 19.5deg,
+    rgb(17, 17, 17) 19.5deg 39deg,
+    red 39deg 58.5deg,
+    rgb(17, 17, 17) 58.5deg 78deg,
+    red 78deg 97.5deg,
+    rgb(17, 17, 17) 97.5deg 117deg,
+    red 117deg 136.5deg,
+    rgb(17, 17, 17) 136.5deg 156deg,
+    red 156deg 175.5deg,
+    rgb(0, 170, 0) 175.5deg 185.1deg,
+    red 185.1deg 204.6deg,
+    rgb(17, 17, 17) 204.6deg 224.1deg,
+    red 224.1deg 243.6deg,
+    rgb(17, 17, 17) 243.6deg 263.1deg,
+    red 263.1deg 282.6deg,
+    rgb(17, 17, 17) 282.6deg 302.1deg,
+    red 302.1deg 321.6deg,
+    rgb(17, 17, 17) 321.6deg 341.1deg,
+    red 341.1deg 360deg
   );
 }
 
@@ -367,25 +357,25 @@ h1 {
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 8px;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   background: transparent;
-  color: #ffd700;
+  color: gold;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
-.bet-option.red    { border-color: #ff4444; color: #ff4444; }
-.bet-option.black  { border-color: #aaa;    color: #aaa; }
-.bet-option.green  { border-color: #00ff88; color: #00ff88; }
+.bet-option.red    { border-color: rgb(255, 68, 68); color: rgb(255, 68, 68); }
+.bet-option.black  { border-color: gray;    color: gray; }
+.bet-option.green  { border-color: rgb(0, 255, 136); color: rgb(0, 255, 136); }
 
 .bet-option.active,
-.bet-option:hover             { background: #ffd700; color: #1a0a2e; border-color: #ffd700; }
+.bet-option:hover             { background: gold; color: rgb(26, 10, 46); border-color: gold; }
 .bet-option.red.active,
-.bet-option.red:hover         { background: #ff4444; color: #fff;    border-color: #ff4444; }
+.bet-option.red:hover         { background: rgb(255, 68, 68); color: white;    border-color: rgb(255, 68, 68); }
 .bet-option.black.active,
-.bet-option.black:hover       { background: #aaa;    color: #1a0a2e; border-color: #aaa; }
+.bet-option.black:hover       { background: gray;    color: rgb(26, 10, 46); border-color: gray; }
 .bet-option.green.active,
-.bet-option.green:hover       { background: #00ff88; color: #1a0a2e; border-color: #00ff88; }
+.bet-option.green:hover       { background: rgb(0, 255, 136); color: rgb(26, 10, 46); border-color: rgb(0, 255, 136); }
 
 #roulette-result {
   margin-top: 16px;
@@ -393,13 +383,12 @@ h1 {
   min-height: 1.6em;
 }
 
-/* ---- COINFLIP ---- */
 .coin {
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ffd700, #ff9900);
-  border: 5px solid #ffd700;
+  background: linear-gradient(135deg, gold, rgb(255, 153, 0));
+  border: 5px solid gold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -431,17 +420,17 @@ h1 {
   padding: 12px 30px;
   font-size: 1.1rem;
   border-radius: 8px;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   background: transparent;
-  color: #ffd700;
+  color: gold;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
 .cf-option:hover,
 .cf-option.active {
-  background: #ffd700;
-  color: #1a0a2e;
+  background: gold;
+  color: rgb(26, 10, 46);
 }
 
 #cf-result {
@@ -450,7 +439,6 @@ h1 {
   min-height: 1.6em;
 }
 
-/* ---- CASES ---- */
 .case-select {
   display: flex;
   gap: 12px;
@@ -461,9 +449,9 @@ h1 {
 .case-select button {
   padding: 10px 22px;
   font-size: 1rem;
-  border: 2px solid #ffd700;
+  border: 2px solid gold;
   background: transparent;
-  color: #ffd700;
+  color: gold;
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s, color 0.2s;
@@ -471,16 +459,16 @@ h1 {
 
 .case-select button:hover,
 .case-select button.active {
-  background: #ffd700;
-  color: #1a0a2e;
+  background: gold;
+  color: rgb(26, 10, 46);
 }
 
 .case-viewport {
-  width: 330px; /* 3 items of 100px + 10px gap */
+  width: 330px;
   height: 120px;
   margin: 0 auto 20px;
-  background: #0d0520;
-  border: 3px solid #ffd700;
+  background: rgb(13, 5, 32);
+  border: 3px solid gold;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
@@ -491,10 +479,10 @@ h1 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  color: #fff;
+  color: white;
   font-size: 24px;
   z-index: 10;
-  text-shadow: 0 0 5px #000;
+  text-shadow: 0 0 5px black;
 }
 
 .case-strip {
@@ -508,8 +496,8 @@ h1 {
 .case-item {
   min-width: 100px;
   height: 100px;
-  background: #1a0a2e;
-  border: 2px solid #fff;
+  background: rgb(26, 10, 46);
+  border: 2px solid white;
   border-radius: 8px;
   display: flex;
   flex-direction: column;

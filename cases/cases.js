@@ -1,7 +1,7 @@
 const casesData = [
-  { name: 'Bronze', cost: 100, rewards: [10, 50, 150, 500], colors: ['#aaa', '#4caf50', '#2196f3', '#ffeb3b'] },
-  { name: 'Silver', cost: 250, rewards: [50, 150, 400, 1000], colors: ['#aaa', '#4caf50', '#2196f3', '#ffeb3b'] },
-  { name: 'Gold', cost: 500, rewards: [100, 300, 800, 2500], colors: ['#aaa', '#4caf50', '#2196f3', '#ffeb3b'] }
+  { name: 'Bronze', cost: 100, rewards: [10, 50, 150, 500], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] },
+  { name: 'Silver', cost: 250, rewards: [50, 150, 400, 1000], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] },
+  { name: 'Gold', cost: 500, rewards: [100, 300, 800, 2500], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] }
 ];
 
 let currentCase = 0;
@@ -19,7 +19,6 @@ function selectCase(index) {
 
 function generateRandomItem() {
   const c = casesData[currentCase];
-  // Simple probabilities: 50%, 30%, 15%, 5%
   const r = Math.random();
   let idx = 0;
   if (r > 0.5) idx = 1;
@@ -71,14 +70,10 @@ function openCase() {
     strip.appendChild(div);
   }
 
-  // Force reflow
   void strip.offsetWidth;
 
-  const itemWidth = 110; // 100px width + 10px gap
+  const itemWidth = 110;
   const randomOffset = Math.floor(Math.random() * (itemWidth - 20)) - ((itemWidth - 20) / 2);
-  
-  // Center of viewport is 330 / 2 = 165
-  // We want the left edge of WIN_INDEX item to be at center - half item width
   const targetX = -(WIN_INDEX * itemWidth) + 165 - (itemWidth / 2) + randomOffset;
 
   strip.style.transition = 'transform 4s cubic-bezier(0.1, 0, 0, 1)';

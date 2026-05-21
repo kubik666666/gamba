@@ -33,7 +33,6 @@ function flipCoin() {
     return;
   }
 
-  // Deduct bet
   coins -= betAmount;
   saveCoins();
   updateCoinsDisplay();
@@ -42,7 +41,6 @@ function flipCoin() {
   result.textContent = '';
   result.className = '';
 
-  // Start flip animation
   coin.classList.add('flipping');
 
   setTimeout(() => {
@@ -51,12 +49,10 @@ function flipCoin() {
     const isHeads = Math.random() < 0.5;
     const landedSide = isHeads ? 'heads' : 'tails';
 
-    // Update coin icon based on result
     coin.textContent = isHeads ? '🦅' : '🔢';
 
     if (selectedSide === landedSide) {
-      const winnings = betAmount * 2;
-      coins += winnings;
+      coins += betAmount * 2;
       result.textContent = `🎉 It's ${landedSide.toUpperCase()}! You won ${winnings} coins!`;
       result.className = 'win';
     } else {
