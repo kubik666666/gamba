@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruleta – Gamba</title>
+  <title>Kurzové Sázení – Gamba</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="sazeni.css">
 </head>
 <body>
 
@@ -24,29 +25,36 @@
     </div>
   </div>
 
-  <h1>🎡 Ruleta 🎡</h1>
+  <h1>🎫 Kurzové Sázení 🎫</h1>
 
   <div class="coins">💰 <span id="coins">0</span> mincí</div>
 
-  <div class="game-card">
-    <div class="roulette-wheel" id="wheel">🎡</div>
+  <div class="sports-tabs">
+    <button class="sport-tab-btn active" onclick="switchSport('fotbal')">⚽ Fotbal</button>
+    <button class="sport-tab-btn" onclick="switchSport('hokej')">🏒 Hokej</button>
+  </div>
 
-    <div class="bet-options">
-      <button class="bet-option red"   onclick="selectBet('red')"  >🔴 Červená (2×)</button>
-      <button class="bet-option black" onclick="selectBet('black')">⚫ Černá (2×)</button>
-      <button class="bet-option green" onclick="selectBet('green')">🟢 Zelená (35×)</button>
+  <div class="matches-list" id="matches-list"></div>
+
+  <div class="bet-panel">
+    <div class="bet-summary" id="bet-summary">
+      Vyberte zápas a kurz na lístek.
     </div>
 
     <div class="bet-row">
-      <label for="bet-amount">Sázka:</label>
-      <input type="number" id="bet-amount" min="10" max="5000" value="50" placeholder="50">
+      <label for="sazeni-bet">Částka:</label>
+      <input type="number" id="sazeni-bet" min="10" max="5000" value="50" placeholder="50">
     </div>
 
-    <button id="spin-btn" class="action-btn" onclick="spinRoulette()">ZATOČIT</button>
-    <div id="roulette-result"></div>
+    <button id="sazeni-btn" class="action-btn" onclick="placeBet()" disabled>VSADIT A VYHODNOTIT</button>
+
+    <div id="sazeni-result-box" class="sazeni-result-box" style="display: none;">
+      <div id="result-score" class="result-score"></div>
+      <div id="result-text"></div>
+    </div>
   </div>
 
   <script src="../shared.js"></script>
-  <script src="ruleta.js"></script>
+  <script src="sazeni.js"></script>
 </body>
 </html>

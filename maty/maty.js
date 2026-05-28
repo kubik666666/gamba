@@ -6,8 +6,13 @@ const machines = [
 
 let currentMachine = 0;
 const SPIN_COST = 50;
+let autoSpinActive = false;
+let autoSpinTimeout = null;
 
 function selectMachine(index) {
+  if (autoSpinActive) {
+    stopAutoSpin();
+  }
   currentMachine = index;
   document.querySelectorAll('.machine-select button').forEach((btn, i) => {
     btn.classList.toggle('active', i === index);
@@ -20,7 +25,41 @@ function selectMachine(index) {
 }
 
 function refreshSpinBtn() {
-  document.getElementById('spin-btn').disabled = coins < SPIN_COST;
+  document.getElementById('spin-btn').disabled = coins < SPIN_COST || autoSpinActive;
+  const autoBtn = document.getElementById('auto-btn');
+  if (autoBtn) {
+    autoBtn.disabled = coins < SPIN_COST && !autoSpinActive;
+  }
+}
+
+function stopAutoSpin() {
+  autoSpinActive = false;
+  const autoBtn = document.getElementById('auto-btn');
+  if (autoBtn) {
+    autoBtn.textContent = 'AUTO (50)';
+    autoBtn.classList.remove('active');
+  }
+  if (autoSpinTimeout) {
+    clearTimeout(autoSpinTimeout);
+    autoSpinTimeout = null;
+  }
+  refreshSpinBtn();
+}
+
+function toggleAutoSpin() {
+  if (autoSpinActive) {
+    stopAutoSpin();
+  } else {
+    if (coins < SPIN_COST) return;
+    autoSpinActive = true;
+    const autoBtn = document.getElementById('auto-btn');
+    if (autoBtn) {
+      autoBtn.textContent = 'STOP AUTO';
+      autoBtn.classList.add('active');
+    }
+    document.getElementById('spin-btn').disabled = true;
+    spin();
+  }
 }
 
 function spin() {
@@ -33,7 +72,10 @@ function spin() {
     document.getElementById('r2')
   ];
 
-  if (coins < SPIN_COST) return;
+  if (coins < SPIN_COST) {
+    if (autoSpinActive) stopAutoSpin();
+    return;
+  }
   coins -= SPIN_COST;
   saveCoins();
   updateCoinsDisplay();
@@ -61,20 +103,29 @@ function spin() {
 
     if (final[0] === final[1] && final[1] === final[2]) {
       coins += SPIN_COST * 5;
-      result.textContent = '🎉 JACKPOT! +' + (SPIN_COST * 5) + ' coins!';
+      result.textContent = '🎉 JACKPOT! +' + (SPIN_COST * 5) + ' mincí!';
       result.className = 'win';
     } else if (final[0] === final[1] || final[1] === final[2] || final[0] === final[2]) {
       coins += SPIN_COST * 2;
-      result.textContent = '😏 Nice! +' + (SPIN_COST * 2) + ' coins!';
+      result.textContent = '😏 Skvělé! +' + (SPIN_COST * 2) + ' mincí!';
       result.className = 'win';
     } else {
-      result.textContent = '😢 Try again! -' + SPIN_COST + ' coins';
+      result.textContent = '😢 Zkus to znovu! -' + SPIN_COST + ' mincí';
       result.className = 'lose';
     }
 
     saveCoins();
     updateCoinsDisplay();
-    refreshSpinBtn();
+    
+    if (autoSpinActive) {
+      if (coins >= SPIN_COST) {
+        autoSpinTimeout = setTimeout(spin, 800);
+      } else {
+        stopAutoSpin();
+      }
+    } else {
+      refreshSpinBtn();
+    }
   }, 1500);
 }
 

@@ -20,19 +20,19 @@ function spinRoulette() {
   const wheel  = document.getElementById('wheel');
 
   if (!selectedBet) {
-    result.textContent = '⚠️ Pick a bet first!';
+    result.textContent = '⚠️ Nejprve si vyberte sázku!';
     result.className = '';
     return;
   }
 
   const betAmount = parseInt(document.getElementById('bet-amount').value);
   if (isNaN(betAmount) || betAmount < 10) {
-    result.textContent = '⚠️ Minimum bet is 10 coins.';
+    result.textContent = '⚠️ Minimální sázka je 10 mincí.';
     result.className = '';
     return;
   }
   if (betAmount > coins) {
-    result.textContent = '⚠️ Not enough coins!';
+    result.textContent = '⚠️ Nedostatek mincí!';
     result.className = '';
     return;
   }
@@ -55,7 +55,7 @@ function spinRoulette() {
     const color  = getColor(landed);
 
     const colorEmoji = { red: '🔴', black: '⚫', green: '🟢' };
-    const colorLabel = { red: 'Red', black: 'Black', green: 'Green' };
+    const colorLabel = { red: 'Červená', black: 'Černá', green: 'Zelená' };
 
     let won = false;
     let payout = 0;
@@ -70,10 +70,10 @@ function spinRoulette() {
 
     if (won) {
       coins += payout;
-      result.textContent = `${colorEmoji[color]} ${landed} – ${colorLabel[color]}! 🎉 +${payout} coins!`;
+      result.textContent = `${colorEmoji[color]} ${landed} – ${colorLabel[color]}! 🎉 +${payout} mincí!`;
       result.className = 'win';
     } else {
-      result.textContent = `${colorEmoji[color]} ${landed} – ${colorLabel[color]}. 😢 -${betAmount} coins`;
+      result.textContent = `${colorEmoji[color]} ${landed} – ${colorLabel[color]}. 😢 -${betAmount} mincí`;
       result.className = 'lose';
     }
 

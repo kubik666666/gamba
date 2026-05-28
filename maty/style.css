@@ -221,3 +221,26 @@ h1 {
 .lose {
   color: rgb(255, 68, 68);
 }
+
+.auto-btn {
+  background: linear-gradient(135deg, rgb(33, 150, 243), rgb(156, 39, 176)) ;
+  color: white ;
+}
+
+.auto-btn:hover {
+  box-shadow: 0 0 20px rgba(156, 39, 176, 0.6) ;
+}
+
+.auto-btn.active {
+  background: linear-gradient(135deg, rgb(244, 67, 54), rgb(233, 30, 99)) ;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(233, 30, 99, 0.9);
+  }
+}

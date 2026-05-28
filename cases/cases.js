@@ -1,7 +1,7 @@
 const casesData = [
-  { name: 'Bronze', cost: 100, rewards: [10, 50, 150, 500], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] },
-  { name: 'Silver', cost: 250, rewards: [50, 150, 400, 1000], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] },
-  { name: 'Gold', cost: 500, rewards: [100, 300, 800, 2500], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] }
+  { name: 'Bronzová', cost: 100, rewards: [10, 50, 150, 500], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] },
+  { name: 'Stříbrná', cost: 250, rewards: [50, 150, 400, 1000], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] },
+  { name: 'Zlatá', cost: 500, rewards: [100, 300, 800, 2500], colors: ['gray', 'rgb(76, 175, 80)', 'rgb(33, 150, 243)', 'yellow'] }
 ];
 
 let currentCase = 0;
@@ -13,7 +13,7 @@ function selectCase(index) {
   document.querySelectorAll('.case-select button').forEach((btn, i) => {
     btn.classList.toggle('active', i === index);
   });
-  document.getElementById('open-btn').textContent = `OPEN CASE (${casesData[index].cost} coins)`;
+  document.getElementById('open-btn').textContent = `OTEVŘÍT CASE (${casesData[index].cost} mincí)`;
   document.getElementById('case-result').textContent = '';
 }
 
@@ -33,7 +33,7 @@ function openCase() {
 
   if (coins < c.cost) {
     const res = document.getElementById('case-result');
-    res.textContent = '⚠️ Not enough coins!';
+    res.textContent = '⚠️ Nedostatek mincí!';
     res.className = 'lose';
     return;
   }
@@ -88,10 +88,10 @@ function openCase() {
     updateCoinsDisplay();
 
     if (winningItem.val >= c.cost) {
-      res.textContent = `🎉 You got ${winningItem.val} coins! PROFIT!`;
+      res.textContent = `🎉 Získal jsi ${winningItem.val} mincí! ZISK!`;
       res.className = 'win';
     } else {
-      res.textContent = `😢 You got ${winningItem.val} coins.`;
+      res.textContent = `😢 Získal jsi ${winningItem.val} mincí.`;
       res.className = 'lose';
     }
   }, 4100);

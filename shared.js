@@ -24,7 +24,7 @@ function confirmDeposit() {
   const amount = parseInt(document.getElementById('deposit-input').value);
   const error = document.getElementById('deposit-error');
   if (isNaN(amount) || amount < 100 || amount > 5000) {
-    error.textContent = '⚠️ Enter a number between 100 and 5000.';
+    error.textContent = '⚠️ Zadejte číslo mezi 100 a 5000.';
     return;
   }
   coins += amount;

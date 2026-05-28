@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coinflip – Gamba</title>
+  <title>Hod mincí – Gamba</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-  <button class="deposit-btn" onclick="openDeposit()">💵 Deposit</button>
+  <button class="deposit-btn" onclick="openDeposit()">💵 Vklad</button>
   <a href="../index.html" class="back-btn">🏠 Menu</a>
-
 
   <div id="deposit-modal" class="modal-overlay" style="display:none;">
     <div class="modal">
-      <h2>💰 Deposit Coins</h2>
-      <p>Enter amount (min 100 – max 5000)</p>
-      <input type="number" id="deposit-input" min="100" max="5000" placeholder="e.g. 500">
+      <h2>💰 Vklad mincí</h2>
+      <p>Zadejte částku (min 100 – max 5000)</p>
+      <input type="number" id="deposit-input" min="100" max="5000" placeholder="např. 500">
       <div id="deposit-error" class="modal-error"></div>
       <div class="modal-buttons">
-        <button onclick="confirmDeposit()">Confirm</button>
-        <button class="cancel" onclick="closeDeposit()">Cancel</button>
+        <button onclick="confirmDeposit()">Potvrdit</button>
+        <button class="cancel" onclick="closeDeposit()">Zrušit</button>
       </div>
     </div>
   </div>
 
-  <h1>🪙 Coinflip 🪙</h1>
+  <h1>🪙 Hod mincí 🪙</h1>
 
-  <div class="coins">💰 <span id="coins">0</span> coins</div>
+  <div class="coins">💰 <span id="coins">0</span> mincí</div>
 
   <div class="game-card">
     <div class="coin" id="coin">🦅</div>
 
     <div class="cf-options">
-      <button class="cf-option" onclick="selectSide('heads')">🦅 Heads</button>
-      <button class="cf-option" onclick="selectSide('tails')">🔢 Tails</button>
+      <button class="cf-option" onclick="selectSide('heads')">🦅 Orel</button>
+      <button class="cf-option" onclick="selectSide('tails')">🔢 Panna</button>
     </div>
 
     <div class="bet-row">
-      <label for="cf-bet">Bet:</label>
+      <label for="cf-bet">Sázka:</label>
       <input type="number" id="cf-bet" min="10" max="5000" value="50" placeholder="50">
     </div>
 
-    <button id="flip-btn" class="action-btn" onclick="flipCoin()">FLIP</button>
+    <button id="flip-btn" class="action-btn" onclick="flipCoin()">HODIT</button>
     <div id="cf-result"></div>
   </div>
 

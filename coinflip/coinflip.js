@@ -16,19 +16,19 @@ function flipCoin() {
   const coin = document.getElementById('coin');
 
   if (!selectedSide) {
-    result.textContent = '⚠️ Pick Heads or Tails first!';
+    result.textContent = '⚠️ Nejprve zvolte Orla nebo Pannu!';
     result.className = '';
     return;
   }
 
   const betAmount = parseInt(document.getElementById('cf-bet').value);
   if (isNaN(betAmount) || betAmount < 10) {
-    result.textContent = '⚠️ Minimum bet is 10 coins.';
+    result.textContent = '⚠️ Minimální sázka je 10 mincí.';
     result.className = '';
     return;
   }
   if (betAmount > coins) {
-    result.textContent = '⚠️ Not enough coins!';
+    result.textContent = '⚠️ Nemáte dostatek mincí!';
     result.className = '';
     return;
   }
@@ -51,13 +51,15 @@ function flipCoin() {
 
     coin.textContent = isHeads ? '🦅' : '🔢';
 
+    const sideName = landedSide === 'heads' ? 'OREL' : 'PANNA';
+
     if (selectedSide === landedSide) {
       const winnings = betAmount * 2;
       coins += winnings;
-      result.textContent = `🎉 It's ${landedSide.toUpperCase()}! You won ${winnings} coins!`;
+      result.textContent = `🎉 Padl ${sideName}! Vyhráváš ${winnings} mincí!`;
       result.className = 'win';
     } else {
-      result.textContent = `😢 It's ${landedSide.toUpperCase()}. You lost ${betAmount} coins.`;
+      result.textContent = `😢 Padl ${sideName}. Ztrácíš ${betAmount} mincí.`;
       result.className = 'lose';
     }
 
