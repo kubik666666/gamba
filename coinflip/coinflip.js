@@ -52,7 +52,8 @@ function flipCoin() {
     coin.textContent = isHeads ? '🦅' : '🔢';
 
     if (selectedSide === landedSide) {
-      coins += betAmount * 2;
+      const winnings = betAmount * 2;
+      coins += winnings;
       result.textContent = `🎉 It's ${landedSide.toUpperCase()}! You won ${winnings} coins!`;
       result.className = 'win';
     } else {
